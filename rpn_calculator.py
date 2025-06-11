@@ -41,9 +41,8 @@ class RPNCalculator:
             if self._is_number(token):
                 self.output.append(float(token))
             elif token in self.OPERATORS:
-                while (self.operators and
-                       self.operators[-1] != '(' and
-                       self.PRIORITY[self.operators[-1]] >= self.PRIORITY[token]):
+                while (self.operators and self.operators[-1] != '('
+                       and self.PRIORITY[self.operators[-1]] >= self.PRIORITY[token]):
                     self.output.append(self.operators.pop())
                 self.operators.append(token)
             elif token == '(':
